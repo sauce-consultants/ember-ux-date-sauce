@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#uxs-app}}
 
-{{outlet}}
+  {{#uxs-window}}
+
+    {{#uxs-pane single=true padded=true}}
+
+      {{uxs-heading "UX Date Sauce"}}
+
+      {{uxs-subheading "A Collection of Date Components"}}
+
+      {{outlet}}
+
+    {{/uxs-pane}}
+
+  {{/uxs-window}}
+
+{{/uxs-app}}
