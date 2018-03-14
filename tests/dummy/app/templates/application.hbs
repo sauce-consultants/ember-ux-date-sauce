@@ -1,8 +1,21 @@
-{{#uxs-app}}
+{{#uxs-app fixedNav=true}}
 
   {{#uxs-window}}
 
     {{#uxs-pane single=true padded=true}}
+
+      {{#uxs-navbar fixed=true title="Date Sauce" as |bar|}}
+        {{#bar.menu as |nav|}}
+          {{nav.link "Home" "home"}}
+          {{nav.link "Range" "range"}}
+          {{nav.link "Day" "day"}}
+          {{nav.link "Week" "week"}}
+          {{nav.link "Month" "month"}}
+          {{nav.link "Quarter" "quarter"}}
+          {{nav.link "Year" "year"}}
+          {{nav.link "Custom" "custom"}}
+        {{/bar.menu}}
+      {{/uxs-navbar}}
 
       {{uxs-heading "UX Date Sauce"}}
 

@@ -1,0 +1,32 @@
+{{#uxs-form-control
+  label=label
+  class="filter__control filter__control--range" as |control|}}
+
+  {{#control.dropdown
+    allowClear=true
+    searchEnabled=false
+    selected=type
+    options=rangeOptions
+    onchange=(action (mut type))
+    name="range"
+    placeholder="Range"
+    as |rangeOption|
+  }}
+    {{rangeOption}}
+  {{/control.dropdown}}
+
+  {{#if isDateRange}}
+    {{uxs-date-range/date}}
+  {{else if isWeekRange}}
+    {{uxs-date-range/week}}
+  {{else if isMonthRange}}
+    {{uxs-date-range/month}}
+  {{else if isQuarterRange}}
+    {{uxs-date-range/quarter}}
+  {{else if isYearRange}}
+    {{uxs-date-range/year}}
+  {{else if isCustomRange}}
+    {{uxs-date-range/custom}}
+  {{/if}}
+
+{{/uxs-form-control}}

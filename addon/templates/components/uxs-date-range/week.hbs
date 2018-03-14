@@ -1,0 +1,29 @@
+{{#uxs-form-control-row as |row|}}
+
+  {{#uxs-form-dropdown
+    searchEnabled=false
+    selected=(find-option-by weekOptions "value" week)
+    options=weekOptions
+    onchange=(action "setWeek")
+    name="week"
+    placeholder="Week"
+    class="fg"
+    as |weekOption|
+  }}
+    {{weekOption.label}}
+  {{/uxs-form-dropdown}}
+
+  {{#uxs-form-dropdown
+    searchEnabled=false
+    selected=year
+    options=yearOptions
+    onchange=(action "setYear")
+    name="year"
+    placeholder="Year"
+    class="fg"
+    as |yearOption|
+  }}
+    {{yearOption}}
+  {{/uxs-form-dropdown}}
+
+{{/uxs-form-control-row}}

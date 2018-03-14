@@ -1,0 +1,12 @@
+{{#uxs-form-dropdown
+  searchEnabled=false
+  selected=year
+  options=yearOptions
+  onchange=(action (mut year))
+  name="year"
+  placeholder="Year"
+  class="fg"
+  as |yearOption|
+}}
+  {{yearOption}}
+{{/uxs-form-dropdown}}

@@ -1,0 +1,46 @@
+
+{{uxs-heading "Month Range Component" class="mt"}}
+
+{{uxs-content "Select a month as a range."}}
+
+{{uxs-date-range/month
+  value=value
+  onChange=(action "setMonth")
+  minDate=minDate
+  maxDate=maxDate
+}}
+
+{{#uxs-content}}Value: {{value}}{{/uxs-content}}
+
+{{#uxs-table as |table|}}
+  {{#table.row as |row|}}
+    {{row.heading "Parameter" class="c-p"}}
+    {{row.heading "Description" class="c-p"}}
+    {{row.heading "Type" class="c-p"}}
+  {{/table.row}}
+  {{#table.row section=true as |row|}}
+    {{row.cell "value"}}
+    {{row.cell "The current day (readonly)"}}
+    {{row.cell "string/date"}}
+  {{/table.row}}
+  {{#table.row as |row|}}
+    {{row.cell "format"}}
+    {{row.cell "Date format to display (default: \"DD/MM/YY\")"}}
+    {{row.cell "string"}}
+  {{/table.row}}
+  {{#table.row as |row|}}
+    {{row.cell "onChange"}}
+    {{row.cell "Action on selecting a new date."}}
+    {{row.cell "action"}}
+  {{/table.row}}
+{{/uxs-table}}
+
+{{uxs-subheading "onChange Action"}}
+
+{{uxs-content "The action method signature is as follows:"}}
+
+{{#uxs-ul as |list|}}
+  {{#list.item}}<b>range</b> An array containing date objects for the start and end of the day.{{/list.item}}
+  {{#list.item}}<b>format</b> A formatted string of the selected day, as per the format attribute{{/list.item}}
+  {{#list.item}}<b>pickerRef</b> A reference to the flatpickr instance{{/list.item}}
+{{/uxs-ul}}

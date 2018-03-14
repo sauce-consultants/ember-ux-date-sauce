@@ -1,0 +1,9 @@
+{{#uxs-form-control-row as |row|}}
+  {{row.icon 'date_range' prefix=true}}
+  {{uxs-form-date
+    value=(readonly value)
+    onChange=(action "setDate")
+    placeholder="Date"
+    enableTime=false
+  }}
+{{/uxs-form-control-row}}

@@ -1,0 +1,21 @@
+{{#uxs-form-control-row as |row|}}
+  {{row.icon 'date_range'  prefix=true}}
+  {{uxs-form-date
+    value=(readonly from)
+    onChange=(action "setFrom")
+    placeholder="From"
+    enableTime=false
+    maxDate=maxFromDate
+    minDate=minFromDate
+  }}
+  <div style="width:25px;"></div>
+  {{row.icon 'date_range' prefix=true}}
+  {{uxs-form-date
+    value=(readonly to)
+    onChange=(action "setTo")
+    placeholder="Until"
+    enableTime=false
+    maxDate=maxToDate
+    minDate=minToDate
+  }}
+{{/uxs-form-control-row}}
