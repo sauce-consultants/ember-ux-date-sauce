@@ -1,6 +1,8 @@
 {{#uxs-form-control
   label=label
-  class="filter__control filter__control--range" as |control|}}
+  class=(bem b "control" m)
+  as |control|
+}}
 
   {{#control.dropdown
     allowClear=true
@@ -10,6 +12,7 @@
     onchange=(action "setRangeType")
     name="range"
     placeholder="Range"
+    class=(bem b "range" m)
     as |rangeOption|
   }}
     {{rangeOption}}
@@ -63,6 +66,8 @@
       maxDate=maxDate
       format=defaultCustomFormat
     }}
+  {{else}}
+    {{uxs-content "Select Type of Date Range" class=(bem b "null-message" m)}}
   {{/if}}
 
 {{/uxs-form-control}}

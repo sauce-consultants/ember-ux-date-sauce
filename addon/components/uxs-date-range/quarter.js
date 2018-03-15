@@ -14,6 +14,7 @@ export default Component.extend({
   // Attributes
   layout,
   format: 'YYYY-[Q]Q',
+  tagName: '',
   minDate: moment.utc('2000', 'YYYY').startOf('year').toDate(),
   maxDate: moment.utc('2010', 'YYYY').endOf('year').toDate(),
   // Computed

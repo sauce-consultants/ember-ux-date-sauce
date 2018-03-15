@@ -15,9 +15,12 @@ import {
   startOfQuarter,
   endOfQuarter
 } from '../utils/moment-shims';
+import Testable from 'ember-ux-sauce/mixins/testable';
+import BEMComponent from 'ember-bem-sauce/mixins/bem-component';
 
-export default Component.extend({
+export default Component.extend(BEMComponent, Testable, {
   // Attributes
+  base: 'uxs-daterange',
   value: null,
   label: "Date Range",
   layout,
@@ -124,6 +127,7 @@ export default Component.extend({
     setRangeType(type) {
 
       if (isEmpty(type)) {
+        set(this, 'type', null);
         return this.send('setRange', null, null, null);
       }
 

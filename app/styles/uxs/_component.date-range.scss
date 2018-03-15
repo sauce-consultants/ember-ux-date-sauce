@@ -1,0 +1,12 @@
+.uxs-daterange {
+  &__range {
+    margin-bottom: rem-size($baseline*0.5);
+  }
+
+  &__null-message {
+    background : $c-light;
+    color      : $c-mid;
+    padding    : 0 rem-size($baseline*1);
+    line-height: rem-size($baseline*1.5);
+  }
+}

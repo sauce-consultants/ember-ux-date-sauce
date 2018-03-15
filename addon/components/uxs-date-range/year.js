@@ -9,6 +9,7 @@ import moment from 'moment';
 export default Component.extend({
   // Attributes
   layout,
+  tagName: '',
   format: "YYYY",
   minDate: moment.utc('1970', 'YYYY').startOf('year').toDate(),
   maxDate: moment.utc().add(10, 'years').endOf('year').toDate(),
