@@ -12,8 +12,6 @@ export default Controller.extend({
   // Actions
   actions: {
     setQuarter(range, format /*, ref*/ ) {
-      Ember.Logger.log(format);
-      Ember.Logger.log(range);
       set(this, 'value', format);
     },
   },

@@ -5,6 +5,10 @@ import {
   get,
 } from '@ember/object';
 import moment from 'moment';
+import {
+  startOfQuarter,
+  endOfQuarter
+} from '../../utils/moment-shims';
 
 export default Component.extend({
   // Attributes
@@ -13,13 +17,13 @@ export default Component.extend({
   minDate: moment.utc('2000', 'YYYY').startOf('year').toDate(),
   maxDate: moment.utc('2010', 'YYYY').endOf('year').toDate(),
   // Computed
-  quarter: computed('value', function() {
+  quarter: computed('value', 'format', function() {
     const value = get(this, 'value'),
       format = get(this, 'format');
 
     return moment.utc(value, format).format('Q');
   }),
-  year: computed('value', function() {
+  year: computed('value', 'format', function() {
     const value = get(this, 'value'),
       format = get(this, 'format');
 
@@ -64,33 +68,6 @@ export default Component.extend({
     }
     return options;
   }),
-  // Methods
-  startOfQuarter(date) {
-    date = date.startOf('month').clone();
-    let start = false;
-    while (start) {
-      const m = date.format("MM");
-      if (m === "01" || m === "03" || m === "06" || m === "09") {
-        start = true;
-      } else {
-        date.subtract(1, 'month');
-      }
-    }
-    return date;
-  },
-  endOfQuarter(date) {
-    date = date.endOf('month').clone();
-    let start = false;
-    while (start) {
-      const m = date.format("MM");
-      if (m === "03" || m === "06" || m === "09" || m === "12") {
-        start = true;
-      } else {
-        date.add(1, 'month');
-      }
-    }
-    return date;
-  },
   // Actions
   actions: {
     setQuarter(selected) {
@@ -100,8 +77,8 @@ export default Component.extend({
         year = get(this, "year"),
         date = moment(`${year}-Q${quarter}`, 'YYYY-[Q]Q'),
         range = [
-          this.startOfQuarter(date),
-          this.endOfQuarter(date),
+          startOfQuarter(date),
+          endOfQuarter(date),
         ];
 
       if (action) {
@@ -126,8 +103,8 @@ export default Component.extend({
       }
 
       const range = [
-        this.startOfQuarter(date),
-        this.endOfQuarter(date),
+        startOfQuarter(date),
+        endOfQuarter(date),
       ];
 
       if (action) {

@@ -3,4 +3,11 @@
 
 {{uxs-content "The range component allows the user to specify any date range. From a single day, or a month or a custom range between two dates."}}
 
-{{uxs-date-range}}
+{{uxs-date-range
+  value=value
+  onChange=(action "setRange")
+}}
+
+<div class="">
+  Value: {{value}}
+</div>

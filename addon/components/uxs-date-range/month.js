@@ -13,13 +13,13 @@ export default Component.extend({
   minDate: moment.utc('2000', 'YYYY').startOf('year').toDate(),
   maxDate: moment.utc('2010', 'YYYY').endOf('year').toDate(),
   // Computed
-  month: computed('value', function() {
+  month: computed('value', 'format', function() {
     const value = get(this, 'value'),
       format = get(this, 'format');
 
     return moment.utc(value, format).format('MM');
   }),
-  year: computed('value', function() {
+  year: computed('value', 'format', function() {
     const value = get(this, 'value'),
       format = get(this, 'format');
 

@@ -12,7 +12,6 @@ export default Controller.extend({
   // Actions
   actions: {
     setWeek(range, format /*, ref*/ ) {
-      Ember.Logger.log(range);
       set(this, 'value', format);
     },
   },

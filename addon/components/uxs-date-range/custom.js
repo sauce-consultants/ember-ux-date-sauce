@@ -7,14 +7,23 @@ import {
 import moment from 'moment';
 
 export default Component.extend({
-  from: null,
   layout,
   format: 'DD/MM/YY',
   tagName: '',
-  to: null,
   minDate: null,
   maxDate: null,
   // Computed
+  from: computed('value', 'format', function() {
+    const value = get(this, 'value').split('..')[0],
+      format = get(this, 'format');
+
+    return moment.utc(value, format).format(format);
+  }),
+  to: computed('value', 'format', function() {
+    const value = get(this, 'value').split('..')[1],
+      format = get(this, 'format');
+    return moment.utc(value, format).format(format);
+  }),
   minFromDate: computed('minDate', function() {
     const min = get(this, 'minDate');
     if (min) {
@@ -26,7 +35,7 @@ export default Component.extend({
     const format = get(this, 'format'),
       to = moment.utc(get(this, 'to'), format);
     if (to) {
-      return to.toDate();
+      return to.subtract(1, 'day').toDate();
     }
 
     const max = get(this, 'maxDate');
@@ -39,7 +48,7 @@ export default Component.extend({
     const format = get(this, 'format'),
       from = moment.utc(get(this, 'from'), format);
     if (from) {
-      return from.toDate();
+      return from.add(1, 'day').toDate();
     }
 
     const min = get(this, 'minDate');

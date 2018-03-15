@@ -7,7 +7,7 @@
     searchEnabled=false
     selected=type
     options=rangeOptions
-    onchange=(action (mut type))
+    onchange=(action "setRangeType")
     name="range"
     placeholder="Range"
     as |rangeOption|
@@ -15,18 +15,54 @@
     {{rangeOption}}
   {{/control.dropdown}}
 
-  {{#if isDateRange}}
-    {{uxs-date-range/date}}
+  {{#if isDayRange}}
+    {{uxs-date-range/day
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultDayFormat
+    }}
   {{else if isWeekRange}}
-    {{uxs-date-range/week}}
+    {{uxs-date-range/week
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultWeekFormat
+    }}
   {{else if isMonthRange}}
-    {{uxs-date-range/month}}
+    {{uxs-date-range/month
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultMonthFormat
+    }}
   {{else if isQuarterRange}}
-    {{uxs-date-range/quarter}}
+    {{uxs-date-range/quarter
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultQuarterFormat
+    }}
   {{else if isYearRange}}
-    {{uxs-date-range/year}}
+    {{uxs-date-range/year
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultYearFormat
+    }}
   {{else if isCustomRange}}
-    {{uxs-date-range/custom}}
+    {{uxs-date-range/custom
+      value=(readonly value)
+      onChange=(action "setRange")
+      minDate=minDate
+      maxDate=maxDate
+      format=defaultCustomFormat
+    }}
   {{/if}}
 
 {{/uxs-form-control}}

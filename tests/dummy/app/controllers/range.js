@@ -2,16 +2,17 @@ import Controller from '@ember/controller';
 import {
   set
 } from '@ember/object';
+import moment from 'moment';
 
 export default Controller.extend({
   // Attributes
-  from: '05/02/2018',
-  to: '16/04/2018',
+  value: null,
+  minDate: moment('2016-04-01').toDate(),
+  maxDate: moment('2020-08-30').toDate(),
   // Actions
   actions: {
     setRange(range, format /*, ref*/ ) {
-      set(this, 'from', range[0].format('DD/MM/YY'));
-      set(this, 'to', range[1].format('DD/MM/YY'));
+      set(this, 'value', format);
     },
   },
 });
