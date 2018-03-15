@@ -1,29 +1,29 @@
 export function startOfQuarter(date) {
   date = date.startOf('month').clone();
-  let start = false;
-  while (start) {
-    const m = date.format("MM");
-    if (m === "01" || m === "03" || m === "06" || m === "09") {
-      start = true;
+
+  for (var i = 0; i <= 3; i++) {
+    var m = date.format("MM");
+    if (m === "01" || m === "04" || m === "07" || m === "10") {
+      continue;
     } else {
       date.subtract(1, 'month');
     }
   }
-  return date;
+  return date.startOf('month');
 }
 
 export function endOfQuarter(date) {
   date = date.endOf('month').clone();
-  let start = false;
-  while (start) {
-    const m = date.format("MM");
+
+  for (var i = 0; i <= 3; i++) {
+    var m = date.format("MM");
     if (m === "03" || m === "06" || m === "09" || m === "12") {
-      start = true;
+      continue;
     } else {
       date.add(1, 'month');
     }
   }
-  return date;
+  return date.endOf('month');
 }
 
 export default {

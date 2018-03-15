@@ -56,7 +56,6 @@ export default Component.extend(BEMComponent, Testable, {
   didReceiveAttrs() {
     this._super(...arguments);
     const range = formatToRangeType(get(this, 'value'));
-    Ember.Logger.log(range);
     set(this, 'type', range);
   },
 
