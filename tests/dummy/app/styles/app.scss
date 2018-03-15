@@ -2,6 +2,15 @@
 @import "uxs";
 @import "uxs/component.date-range";
 
+#qunit {
+  li,
+  ol,
+  p,
+  ul {
+    max-width: none!important;
+  }
+}
+
 body {
   .ember-power-select-option {
     margin-bottom: 0;

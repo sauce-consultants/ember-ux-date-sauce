@@ -9,7 +9,7 @@ export default Controller.extend({
   to: '16/04/2018',
   // Actions
   actions: {
-    setRange(range, format /*, ref*/ ) {
+    setRange(range, /*format, ref*/ ) {
       set(this, 'from', range[0].format('DD/MM/YY'));
       set(this, 'to', range[1].format('DD/MM/YY'));
     },

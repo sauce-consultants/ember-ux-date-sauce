@@ -10,7 +10,7 @@ export default Component.extend({
   // Attributes
   layout,
   tagName: '',
-  format: 'YYYY-[W]W',
+  format: 'YYYY-[W]WW',
   minDate: moment.utc('2000', 'YYYY').startOf('year').toDate(),
   maxDate: moment.utc('2010', 'YYYY').endOf('year').toDate(),
   // Computed

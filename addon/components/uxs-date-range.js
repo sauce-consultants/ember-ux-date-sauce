@@ -15,6 +15,7 @@ import {
   startOfQuarter,
   endOfQuarter
 } from '../utils/moment-shims';
+import formatToRangeType from '../utils/format-to-range-type';
 import Testable from 'ember-ux-sauce/mixins/testable';
 import BEMComponent from 'ember-bem-sauce/mixins/bem-component';
 
@@ -26,7 +27,7 @@ export default Component.extend(BEMComponent, Testable, {
   layout,
   type: null,
   defaultDayFormat: 'DD/MM/YY',
-  defaultWeekFormat: 'YYYY-[W]W',
+  defaultWeekFormat: 'YYYY-[W]WW',
   defaultMonthFormat: 'YYYY-MM',
   defaultQuarterFormat: 'YYYY-[Q]Q',
   defaultYearFormat: 'YYYY',
@@ -52,6 +53,13 @@ export default Component.extend(BEMComponent, Testable, {
       'Custom',
     ]);
   },
+  didReceiveAttrs() {
+    this._super(...arguments);
+    const range = formatToRangeType(get(this, 'value'));
+    Ember.Logger.log(range);
+    set(this, 'type', range);
+  },
+
   convertDateToFormat(date, type) {
     switch (type) {
       case 'Day':

@@ -25,3 +25,8 @@ export function endOfQuarter(date) {
   }
   return date;
 }
+
+export default {
+  startOfQuarter,
+  endOfQuarter,
+}
