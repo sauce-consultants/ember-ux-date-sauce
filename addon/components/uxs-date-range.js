@@ -104,7 +104,7 @@ export default Component.extend(BEMComponent, Testable, {
         ];
       case 'Week':
         return [
-          date.startOf('week').clone(),
+          date.startOf('isoWeek').clone(),
           date.endOf('week').clone(),
         ];
       case 'Month':

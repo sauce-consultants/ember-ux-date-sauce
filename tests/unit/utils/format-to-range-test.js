@@ -26,7 +26,7 @@ test('Converts day range', function(assert) {
 test('Converts week range', function(assert) {
   let string = '2019-W03',
     date = moment.utc(string, 'YYYY-[W]WW'),
-    expectedFrom = date.startOf('week').clone(),
+    expectedFrom = date.startOf('isoWeek').clone(),
     expectedTo = date.endOf('week').clone(),
     result = formatToRange(string);
 

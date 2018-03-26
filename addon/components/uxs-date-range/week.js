@@ -74,7 +74,7 @@ export default Component.extend({
         year = get(this, "year"),
         date = moment(`${year}-W${week}`, 'YYYY-[W]WW'),
         range = [
-          date.startOf('week').clone(),
+          date.startOf('isoWeek').clone(),
           date.endOf('week').clone(),
         ];
 
@@ -100,7 +100,7 @@ export default Component.extend({
       }
 
       const range = [
-        date.startOf('week').clone(),
+        date.startOf('isoWeek').clone(),
         date.endOf('week').clone(),
       ];
 
