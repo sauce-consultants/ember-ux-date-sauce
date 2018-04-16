@@ -1,6 +1,6 @@
 {
   "name": "ember-ux-date-sauce",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Useful components for dates, extends ember-uxs-sauce",
   "keywords": [
     "ember-addon"
