@@ -19,7 +19,7 @@ export default function formatToRange(formattedDate) {
       var week = moment.utc(formattedDate, 'YYYY-[W]WW');
       return [
         week.startOf('isoWeek').clone(),
-        week.endOf('week').clone(),
+        week.endOf('week').clone().add(6, 'hours'),
       ];
     case "Month":
       var month = moment.utc(formattedDate, 'YYYY-MM');
