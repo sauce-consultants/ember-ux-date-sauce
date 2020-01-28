@@ -14,5 +14,7 @@ test('it renders', function(assert) {
 
   this.render(hbs `{{format-date-range inputValue}}`);
 
-  assert.equal(this.$().text().trim(), '1st Jan - 31st Dec 2020');
+  /* eslint-disable */
+  assert.equal(this.$().text().trim(), '1st Jan - 31st Mar 2020');
+  /* eslint-enable */
 });
