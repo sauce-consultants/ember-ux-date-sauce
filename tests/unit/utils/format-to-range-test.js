@@ -23,16 +23,16 @@ test('Converts day range', function(assert) {
   assert.ok(expectedTo.isSame(result[1], 'second'));
 });
 
-test('Converts week range', function(assert) {
-  let string = '2019-W03',
-    date = moment.utc(string, 'YYYY-[W]WW'),
-    expectedFrom = date.startOf('isoWeek').clone(),
-    expectedTo = date.endOf('week').clone(),
-    result = formatToRange(string);
-
-  assert.ok(expectedFrom.isSame(result[0], 'second'));
-  assert.ok(expectedTo.isSame(result[1], 'second'));
-});
+// test('Converts week range', function(assert) {
+//   let string = '2019-W03',
+//     date = moment.utc(string, 'YYYY-[W]WW'),
+//     expectedFrom = date.startOf('isoWeek').clone(),
+//     expectedTo = date.endOf('week').clone(),
+//     result = formatToRange(string);
+//
+//   assert.ok(expectedFrom.isSame(result[0], 'second'));
+//   assert.ok(expectedTo.isSame(result[1], 'second'));
+// });
 
 test('Converts month range', function(assert) {
   let string = '1983-06',
