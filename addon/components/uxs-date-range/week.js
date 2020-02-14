@@ -21,10 +21,9 @@ export default Component.extend({
     return moment.utc(value, format).format('WW');
   }),
   year: computed('value', 'format', function() {
-    const value = get(this, 'value'),
-      format = get(this, 'format');
-
-    return moment.utc(value, format).format('YYYY');
+    const value = get(this, 'value');
+ 
+    return value.substring(0, value.indexOf("-"));
   }),
   weekOptions: computed('minDate', 'maxDate', 'year', function() {
     const minDate = get(this, 'minDate'),
