@@ -1,21 +1,26 @@
-{{#uxs-form-control-row as |row|}}
-  {{row.icon 'date_range'  prefix=true}}
-  {{uxs-form-date
-    value=(readonly from)
-    onChange=(action "setFrom")
-    placeholder="From"
-    enableTime=false
-    maxDate=maxFromDate
-    minDate=minFromDate
-  }}
+{{#uxs-form-control-row name="range-custom"}}
+  {{#uxs-form-control-row name="range-custom-start" as |row|}}
+    {{row.icon 'date_range'  prefix=true}}
+    {{uxs-form-date
+      value=(readonly from)
+      onChange=(action "setFrom")
+      placeholder="From"
+      enableTime=false
+      maxDate=maxFromDate
+      minDate=minFromDate
+    }}
+  {{/uxs-form-control-row}}
   <div class="uxs-form__spacer"></div>
-  {{row.icon 'date_range' prefix=true}}
-  {{uxs-form-date
-    value=(readonly to)
-    onChange=(action "setTo")
-    placeholder="Until"
-    enableTime=false
-    maxDate=maxToDate
-    minDate=minToDate
-  }}
+
+  {{#uxs-form-control-row name="range-custom-end" as |row|}}
+    {{row.icon 'date_range' prefix=true}}
+    {{uxs-form-date
+      value=(readonly to)
+      onChange=(action "setTo")
+      placeholder="Until"
+      enableTime=false
+      maxDate=maxToDate
+      minDate=minToDate
+    }}
+  {{/uxs-form-control-row}}
 {{/uxs-form-control-row}}

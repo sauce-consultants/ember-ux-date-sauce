@@ -3,11 +3,13 @@
 
 {{uxs-content "Select a range from two different dates."}}
 
-{{uxs-date-range/custom
-  from=(readonly from)
-  to=(readonly to)
-  onChange=(action "setRange")
-}}
+<div style="flex-direction:column;">
+  {{uxs-date-range/custom
+    from=(readonly from)
+    to=(readonly to)
+    onChange=(action "setRange")
+  }}
+</div>
 
 {{#uxs-content}}Value: {{from}} - {{to}}{{/uxs-content}}
 
