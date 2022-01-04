@@ -31,8 +31,13 @@ export default Component.extend({
       currentYear = get(this, 'year'),
       options = [],
       date = moment.utc(`${currentYear}`, 'YYYY').startOf('year');
-
-    for (var i = 1; i <= 52; i++) {
+    
+    if (moment.utc(`${currentYear}`, 'YYYY').isLeapYear){
+      leapYearTest=53
+    }else{
+      leapYearTest=52
+    }  
+    for (var i = 1; i <= leapYearTest; i++) {
       const option = {};
 
       if (date.isSame(moment(), 'week')) {
